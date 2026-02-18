@@ -1,7 +1,10 @@
-# Use official Eclipse Temurin Java 21 image
-FROM eclipse-temurin:21-jre
+# Use official Eclipse Temurin Java 21 image with Maven
+FROM eclipse-temurin:21-jdk
 
 WORKDIR /app
+
+# Install Maven
+RUN apt-get update && apt-get install -y maven && apt-get clean
 
 # Copy pom.xml first to leverage Docker layer caching
 COPY pom.xml .
