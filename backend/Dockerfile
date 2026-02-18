@@ -1,5 +1,5 @@
-# Use official Java 21 image
-FROM openjdk:21-slim
+# Use official Eclipse Temurin Java 21 image
+FROM eclipse-temurin:21-jre
 
 WORKDIR /app
 
