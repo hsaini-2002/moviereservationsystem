@@ -1,0 +1,36 @@
+server:
+  port: ${PORT:8080}
+  error:
+    include-message: always
+    include-stacktrace: always
+
+app:
+  jwt:
+    secret: ${MRS_JWT_SECRET:change-me-change-me-change-me-change-me-change-me}
+    expiration-seconds: ${MRS_JWT_EXPIRATION_SECONDS:86400}
+  admin:
+    email: ${MRS_ADMIN_EMAIL:admin@mrs.com}
+    password: ${MRS_ADMIN_PASSWORD:admin123}
+    name: ${MRS_ADMIN_NAME:Admin}
+
+spring:
+  datasource:
+    url: jdbc:postgresql://localhost:5432/moviereservation
+    username: moviereservation
+    password: moviereservation
+  jpa:
+    hibernate:
+      ddl-auto: validate
+    properties:
+      hibernate:
+        format_sql: true
+    open-in-view: false
+  flyway:
+    enabled: true
+
+logging:
+  level:
+    org.hibernate.SQL: info
+    org.springframework.security: DEBUG
+    org.springframework.web.servlet: DEBUG
+    org.springframework: DEBUG
